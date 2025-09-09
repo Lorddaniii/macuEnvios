@@ -1,0 +1,323 @@
+/* styles.css para macuEnvios */
+:root {
+  --color-principal: #7b2ff2;
+  --color-secundario: #f2d16b;
+  --color-blanco: #fff;
+  --color-oscuro: #1a1a1a;
+  --color-shadow: #7b2ff288;
+  --color-fragil: #ff7675;
+  --color-muy-fragil: #fd79a8;
+  --transition: 0.2s cubic-bezier(.4,2,.3,1);
+  --shadow: 0 4px 16px var(--color-shadow);
+  --border-radius: 13px;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(120deg, #f4f4fa 0%, #e8e8ff 100%);
+  color: var(--color-oscuro);
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(90deg, var(--color-principal) 70%, var(--color-secundario) 100%);
+  color: var(--color-blanco);
+  padding-bottom: 0.5em;
+  box-shadow: var(--shadow);
+}
+
+.header-bg {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  padding: 1.5em 2em 0.5em 2em;
+}
+
+.logo {
+  font-size: 2.6em;
+  margin-right: .5em;
+  filter: drop-shadow(0 6px 12px #2224);
+}
+
+h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slogan {
+  font-size: 1.12em;
+  margin: .2em 0 0 0;
+  opacity: 0.93;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0 1.7em 0.5em 2.5em;
+  font-size: 1.1em;
+  font-weight: 500;
+}nav a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  transition: color .2s;
+  padding: 0.2em 0.7em;
+  border-radius: 6px;
+}nav a:hover,
+nav a:focus {
+  background: var(--color-secundario);
+  color: var(--color-principal);
+}
+
+main {
+  max-width: 830px;
+  margin: 2.2em auto;
+  padding: 0 1.2em;
+}
+
+.section {
+  margin-bottom: 3em;
+  background: var(--color-blanco);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 12px #7b2ff210;
+  padding: 2em 1.7em 1.7em 1.7em;
+}
+
+.section h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--color-principal);
+  margin-top: 0;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, #e2d8fc 60%, #fdf6ee 100%);
+  box-shadow: 0 4px 32px #7b2ff210;
+  border: 2px solid #eedffd;
+}
+
+.hero-content {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  padding: 1.2em 1em 1em 1em;
+  min-width: 160px;
+  flex: 1 1 170px;
+  max-width: 220px;
+  text-align: center;
+  border: 1px solid #f3ecff;
+  margin-bottom: 0.6em;
+}
+
+.servicio-card .icono-servicio {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 0.5em;
+}
+.servicio-card h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--color-principal);
+  font-size: 1.13em;
+  margin-bottom: 0.2em;
+}
+
+.btn-cotiza {
+  background: linear-gradient(90deg, var(--color-principal), #8961e6 80%);
+  color: #fff;
+  padding: 0.7em 1.3em;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.08em;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #7b2ff219;
+  margin-top: 1em;
+  transition: transform .20s, box-shadow .20s;
+  outline: none;
+}
+.btn-cotiza:hover,
+.btn-cotiza:focus {
+  background: var(--color-secundario);
+  color: var(--color-principal);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px #7b2ff230;
+}
+.pulse {
+  animation: pulse 2s infinite cubic-bezier(.4,2,.3,1);
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--color-shadow);}
+  70% { box-shadow: 0 0 0 14px #7b2ff200;}
+  100% { box-shadow: 0 0 0 0 var(--color-shadow);}
+}
+
+.tarifa-box {
+  background: #f6f4ff;
+  border-radius: 8px;
+  padding: 1.2em 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  box-shadow: 0 1px 8px #7b2ff215;
+  border: 1px solid #e4dcff;
+  max-width: 370px;
+}
+
+.tarifa-box input,
+.tarifa-box select {
+  padding: 0.5em;
+  border-radius: 6px;
+  border: 1px solid #c8b6fa;
+  font-size: 1em;
+  background: #fff;
+}
+
+.precio {
+  background: var(--color-principal);
+  color: #fff;
+  padding: 0.15em 0.7em;
+  border-radius: 7px;
+  font-weight: 700;
+  margin-left: 0.3em;
+}
+
+.ejemplo-tarifas {
+  text-align: left;
+  background: #f2edfc;
+  border: 1px solid #e4dcff;
+  max-width: 300px;
+  margin: 0.6em auto 0 auto;
+  font-size: 1em;
+}
+
+.resultado {
+  margin: 1em 0 0.1em 0;
+  font-weight: 500;
+  color: var(--color-principal);
+  font-size: 1.13em;
+  min-height: 1.2em;
+}
+
+.pago-card, .contacto-card {
+  background: #f7f2ff;
+  border: 1px solid #e4dcff;
+  max-width: 360px;
+  margin: 0 auto;
+  font-size: 1.07em;
+}
+
+.pagos-lista, .contacto-lista {
+  list-style: none;
+  padding: 0.7em 0.6em 0.2em 0.6em;
+  margin: 0;
+}
+
+.nota-pago {
+  font-size: 0.98em;
+  color: #555;
+  margin-top: 0.7em;
+}
+
+.ayuda-rastreo {
+  font-size: 0.93em;
+  color: #888;
+  margin-top: .7em;
+}
+
+footer {
+  text-align: center;
+  font-size: 1em;
+  color: #555;
+  background: #f3ecff;
+  padding: 1.2em 0 0.7em 0;
+  margin-top: 2em;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -8px 40px #7b2ff212;
+}
+
+#cursor-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #7b2ff2cc 0%, #fff0 90%);
+  box-shadow: 0 0 18px 9px #7b2ff249;
+  opacity: 0.32;
+  transform: translate(-100px,-100px);
+  transition: opacity .25s cubic-bezier(.4,2,.3,1);
+  mix-blend-mode: lighten;
+  will-change: transform;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 750px) {
+  main {
+    padding: 0 0.1em;
+    max-width: 99vw;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-bg {
+    flex-direction: column;
+    gap: 0.3em;
+    padding: 0.9em 0.3em 0.3em 0.3em;
+  }
+  nav ul {
+    gap: 0.7em;
+    font-size: 1em;
+    padding: 0 0.5em 0.4em 0.6em;
+  }
+  .section {
+    padding: 1.1em 0.5em 1em 0.5em;
+  }
+  .card {
+    min-width: unset;
+    max-width: 100%;
+    padding: 1.1em 0.5em 1em 0.5em;
+  }
+  .tarifa-box,
+  .pago-card,
+  .contacto-card {
+    max-width: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  background: #f6f0ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #d3c5f7;
+  border-radius: 7px;
+}

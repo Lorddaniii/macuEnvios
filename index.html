@@ -1,26 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macu Envios</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>macuEnvios – Entregamos confianza</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a Macu Envios</h1>
-    </header>
-    <main>
-        <section id="inicio">
-            <h2>Inicio</h2>
-            <div style="text-align: center; font-size: 100px;">
-                📦
-            </div>
-            <p>¡Envía tus paquetes de manera fácil y rápida!</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Macu Envios</p>
-    </footer>
+  <header>
+    <div class="header-bg">
+      <span class="logo" aria-label="Logo">🟪</span>
+      <div>
+        <h1>macuEnvios</h1>
+        <p class="slogan">Entregamos más que paquetes, entregamos confianza</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio" aria-label="Inicio">🏠 Inicio</a></li>
+        <li><a href="#servicios" aria-label="Servicios">📦 Servicios</a></li>
+        <li><a href="#cotiza" aria-label="Cotiza">💸 Cotiza</a></li>
+        <li><a href="#seguimiento" aria-label="Seguimiento">📍 Seguimiento</a></li>
+        <li><a href="#contacto" aria-label="Contacto">📞 Contacto</a></li>
+        <li><a href="#pagos" aria-label="Pagos">💳 Pagos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="section hero">
+      <div class="hero-content">
+        <h2>🏠 Inicio</h2>
+        <p>Bienvenido a <strong>macuEnvios</strong>, tu empresa local de paquetería rápida y segura. Nos especializamos en <strong>entregas eficientes, seguimiento en tiempo real y soporte personalizado</strong>.</p>
+        <a href="#cotiza" class="btn-cotiza pulse">¡Cotiza tu envío ahora!</a>
+      </div>
+      <div style="text-align:center; font-size:100px; margin-bottom:1rem;">
+        <span aria-label="Paquete">📦</span>
+      </div>
+    </section>
+
+    <section id="servicios" class="section">
+      <h2>📦 Servicios que ofrecemos</h2>
+      <div class="cards">
+        <div class="card servicio-card">
+          <span class="icono-servicio" aria-label="Entregas locales">🚚</span>
+          <h3>Entregas locales</h3>
+          <p>Rápidas y seguras dentro de tu ciudad.</p>
+        </div>
+        <div class="card servicio-card">
+          <span class="icono-servicio" aria-label="Seguimiento en tiempo real">🔍</span>
+          <h3>Seguimiento en tiempo real</h3>
+          <p>Sigue tu paquete desde el recojo hasta la entrega.</p>
+        </div>
+        <div class="card servicio-card">
+          <span class="icono-servicio" aria-label="Logística empresarial">🏢</span>
+          <h3>Logística empresarial</h3>
+          <p>Soluciones para empresas y exportadores.</p>
+        </div>
+        <div class="card servicio-card">
+          <span class="icono-servicio" aria-label="Recojo a domicilio">📦</span>
+          <h3>Recojo a domicilio</h3>
+          <p>Vamos a tu puerta, ¡tú solo pide!</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cotiza" class="section">
+      <h2>💸 Cotizador / Tarifas</h2>
+      <form id="cotizador-form" class="tarifa-box" autocomplete="off">
+        <label for="peso">Peso del paquete (kg):</label>
+        <input type="number" id="peso" name="peso" min="0.1" step="0.1" required>
+        <label for="direccion">Dirección de entrega:</label>
+        <input type="text" id="direccion" name="direccion" required>
+        <label for="delicadeza">Delicadeza del producto:</label>
+        <select id="delicadeza" name="delicadeza" required>
+          <option value="normal">Normal</option>
+          <option value="fragil">Frágil</option>
+          <option value="muyfragil">Muy frágil</option>
+        </select>
+        <button type="submit" class="btn-cotiza">Calcular</button>
+      </form>
+      <div id="resultado-cotizador" class="resultado"></div>
+      <div class="ejemplo-tarifas card">
+        <strong>Ejemplo:</strong>
+        <ul>
+          <li>Hasta 1 kg: <span class="precio">S/5</span></li>
+          <li>1–3 kg: <span class="precio">S/8</span></li>
+          <li>3–5 kg: <span class="precio">S/12</span></li>
+          <li>Frágil: +S/3 | Muy frágil: +S/5</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pagos" class="section">
+      <h2>💳 Métodos de Pago</h2>
+      <div class="card pago-card">
+        <ul class="pagos-lista">
+          <li>💰 <strong>Efectivo</strong></li>
+          <li>📲 <strong>Yape / Plin</strong></li>
+        </ul>
+        <p class="nota-pago">*Los pagos se confirman antes del envío o contraentrega.*</p>
+      </div>
+    </section>
+
+    <section id="seguimiento" class="section">
+      <h2>📍 Rastreo de paquetes</h2>
+      <form id="rastreo-form" class="tarifa-box" autocomplete="off">
+        <input type="text" id="codigo-rastreo" placeholder="Ingresa tu código de rastreo" required>
+        <button type="submit" class="btn-cotiza">🔎 Buscar</button>
+      </form>
+      <div id="resultado-rastreo" class="resultado"></div>
+      <p class="ayuda-rastreo">Ubicación y estado del envío en tiempo real*</p>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2>📞 Contacto y Soporte</h2>
+      <div class="card contacto-card">
+        <ul class="contacto-lista">
+          <li>
+            <a href="https://wa.me/51901619079?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20env%C3%ADos." target="_blank" style="display: flex; align-items: center; gap: 0.6em; text-decoration: none; color: inherit;">
+              📱 WhatsApp: <span style="font-weight:bold;">901 619 079</span>
+            </a>
+          </li>
+          <li>✉️ <a href="mailto:soporte@macuenvios.com">soporte@macuenvios.com</a></li>
+          <li>📍 macusani/JR.8 de diciembre barrio tupac</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- LUZ/CHISPA QUE SIGUE AL MOUSE -->
+  <div id="cursor-glow"></div>
+
+  <footer>
+    <p>&copy; 2025 macuEnvios. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Cursor glow effect
+    const cursorGlow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursorGlow.style.opacity = '0.32';
+    });
+    document.addEventListener('mouseleave', () => {
+      cursorGlow.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      cursorGlow.style.opacity = '0.32';
+    });
+  </script>
 </body>
 </html>

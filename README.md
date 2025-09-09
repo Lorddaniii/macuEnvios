@@ -4,7 +4,7 @@
         <img src= "https://i.pinimg.com/736x/64/e8/fd/64e8fd387edfdace4254e59b791844a4.jpg">
     </p>
     <p align="center">
-        <a href="#"><img title="simple-whatsapp-bot" src="https://img.shields.io/badge/-SIMPLE--WHATSAPP--BOT-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+        <a href="#"><img title="simple-WEB -BETA" src="https://img.shields.io/badge/-SIMPLE--WHATSAPP--BOT-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
     </p>
     <p>
         <a href="https://github.com/Lorddaniii"><img title="Author"    src="https://img.shields.io/badge/Author-Daniii-purple.svg?style=for-the-badge&logo=github"></a>

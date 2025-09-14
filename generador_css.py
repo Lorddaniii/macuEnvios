@@ -1,6 +1,5 @@
 # Generador profesional de CSS usando Python
 
-# 1. Definir variables de CSS
 variables = {
     "color-principal": "#6c47ff",
     "color-secundario": "#ffb84d",
@@ -11,7 +10,6 @@ variables = {
     "shadow": "0 6px 24px #6c47ff33"
 }
 
-# 2. Definir bloques CSS principales
 bloques = {
     "body": {
         "font-family": "'Roboto', Arial, sans-serif",
@@ -28,7 +26,6 @@ bloques = {
     # Puedes agregar más bloques aquí...
 }
 
-# 3. Generador de variables CSS
 def generar_variables_css(vars_dict):
     salida = ":root {\n"
     for k, v in vars_dict.items():
@@ -36,7 +33,6 @@ def generar_variables_css(vars_dict):
     salida += "}\n\n"
     return salida
 
-# 4. Generador de reglas CSS
 def generar_reglas_css(bloques_dict):
     salida = ""
     for selector, reglas in bloques_dict.items():
@@ -46,7 +42,6 @@ def generar_reglas_css(bloques_dict):
         salida += "}\n\n"
     return salida
 
-# 5. Guardar el CSS generado
 css = generar_variables_css(variables) + generar_reglas_css(bloques)
 with open("css_profesional_generado.css", "w") as f:
     f.write(css)

@@ -1,49 +1,60 @@
-# Generador profesional de CSS usando Python
+"""
+Generador profesional de CSS para proyectos web
+Autor: daniiibots
+Fecha de generación automática: 
+Lee variables y bloques desde JSON
+"""
 
-variables = {
-    "color-principal": "#6c47ff",
-    "color-secundario": "#ffb84d",
-    "color-blanco": "#fff",
-    "color-oscuro": "#232339",
-    "color-shadow": "#6c47ff33",
-    "border-radius": "16px",
-    "shadow": "0 6px 24px #6c47ff33"
-}
+import datetime
+import json
 
-bloques = {
-    "body": {
-        "font-family": "'Roboto', Arial, sans-serif",
-        "background": "linear-gradient(120deg, #f9f9fc 0%, #f0eeff 100%)",
-        "color": variables["color-oscuro"],
-        "margin": "0",
-        "min-height": "100vh"
-    },
-    "header": {
-        "background": f"linear-gradient(90deg, {variables['color-principal']} 70%, {variables['color-secundario']} 100%)",
-        "color": variables["color-blanco"],
-        "box-shadow": variables["shadow"]
-    }
-    # Puedes agregar más bloques aquí...
-}
+class CSSGenerator:
+    def __init__(self, variables, blocks, minify=False):
+        self.variables = variables
+        self.blocks = blocks
+        self.minify = minify
+        self.timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-def generar_variables_css(vars_dict):
-    salida = ":root {\n"
-    for k, v in vars_dict.items():
-        salida += f"  --{k}: {v};\n"
-    salida += "}\n\n"
-    return salida
+    def generate_variables(self):
+        css = ":root {\n"
+        for k, v in self.variables.items():
+            css += f"  --{k}: {v};\n"
+        css += "}\n\n"
+        return css
 
-def generar_reglas_css(bloques_dict):
-    salida = ""
-    for selector, reglas in bloques_dict.items():
-        salida += f"{selector} {{\n"
-        for propiedad, valor in reglas.items():
-            salida += f"  {propiedad}: {valor};\n"
-        salida += "}\n\n"
-    return salida
+    def generate_blocks(self):
+        css = ""
+        for selector, rules in self.blocks.items():
+            css += f"{selector} {{\n"
+            for prop, val in rules.items():
+                css += f"  {prop}: {val};\n"
+            css += "}\n\n"
+        return css
 
-css = generar_variables_css(variables) + generar_reglas_css(bloques)
-with open("css_profesional_generado.css", "w") as f:
-    f.write(css)
+    def minify_css(self, css):
+        # Simple minifier: remove newlines and extra spaces
+        return ''.join(line.strip() for line in css.splitlines())
 
-print("¡CSS generado profesionalmente con Python!")
+    def generate(self):
+        header = f"/* CSS generado profesionalmente por Python - {self.timestamp} */\n"
+        css_content = self.generate_variables() + self.generate_blocks()
+        if self.minify:
+            css_content = self.minify_css(css_content)
+        return header + css_content
+
+    def save(self, filename="css_profesional_generado.css"):
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(self.generate())
+        print(f"¡CSS generado profesionalmente y guardado en {filename}!")
+
+def cargar_json(ruta):
+    with open(ruta, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+if __name__ == "__main__":
+    # Carga variables y bloques desde archivos JSON
+    variables = cargar_json("variables.json")
+    blocks = cargar_json("bloques.json")
+    # Cambia minify=True si quieres el CSS comprimido para producción
+    generator = CSSGenerator(variables, blocks, minify=False)
+    generator.save("css_profesional_generado.css")

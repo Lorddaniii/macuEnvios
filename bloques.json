@@ -1,0 +1,28 @@
+{
+    "body": {
+        "font-family": "'Roboto', Arial, sans-serif",
+        "background": "linear-gradient(120deg, #f9f9fc 0%, #f0eeff 100%)",
+        "color": "var(--color-oscuro)",
+        "margin": "0",
+        "min-height": "100vh"
+    },
+    "header": {
+        "background": "linear-gradient(90deg, var(--color-principal) 70%, var(--color-secundario) 100%)",
+        "color": "var(--color-blanco)",
+        "box-shadow": "var(--shadow)",
+        "border-bottom-left-radius": "var(--border-radius)",
+        "border-bottom-right-radius": "var(--border-radius)"
+    },
+    ".btn-cotiza": {
+        "background": "linear-gradient(90deg, var(--color-principal), #7a65e6 80%)",
+        "color": "#fff",
+        "border-radius": "10px",
+        "font-size": "1.13em",
+        "font-family": "'Montserrat', Arial, sans-serif",
+        "font-weight": "700",
+        "cursor": "pointer",
+        "box-shadow": "0 3px 16px var(--color-shadow)",
+        "margin-top": "1.2em",
+        "transition": "transform .18s, box-shadow .18s, background .18s"
+    }
+}

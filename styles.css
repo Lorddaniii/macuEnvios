@@ -1,118 +1,140 @@
-/* styles.css para macuEnvios */
+/* styles_macuEnvios.css - Estilos Profesionales */
 :root {
-  --color-principal: #7b2ff2;
-  --color-secundario: #f2d16b;
+  --color-principal: #6c47ff;
+  --color-secundario: #ffb84d;
   --color-blanco: #fff;
-  --color-oscuro: #1a1a1a;
-  --color-shadow: #7b2ff288;
+  --color-oscuro: #232339;
+  --color-shadow: #6c47ff33;
   --color-fragil: #ff7675;
   --color-muy-fragil: #fd79a8;
-  --transition: 0.2s cubic-bezier(.4,2,.3,1);
-  --shadow: 0 4px 16px var(--color-shadow);
-  --border-radius: 13px;
+  --transition: 0.18s cubic-bezier(.5,1.5,.5,1);
+  --shadow: 0 6px 24px var(--color-shadow);
+  --border-radius: 16px;
+  --border-input: 1px solid #d6d2f0;
+  --color-fondo: linear-gradient(120deg, #f9f9fc 0%, #f0eeff 100%);
+  --color-hero: linear-gradient(90deg, #e7e2fc 60%, #fff9f2 100%);
 }
 
 body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
-  background: linear-gradient(120deg, #f4f4fa 0%, #e8e8ff 100%);
+  background: var(--color-fondo);
   color: var(--color-oscuro);
   min-height: 100vh;
+  font-size: 17px;
+  letter-spacing: 0.01em;
 }
 
 header {
   background: linear-gradient(90deg, var(--color-principal) 70%, var(--color-secundario) 100%);
   color: var(--color-blanco);
-  padding-bottom: 0.5em;
+  padding-bottom: 0.7em;
   box-shadow: var(--shadow);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .header-bg {
   display: flex;
   align-items: center;
-  gap: 1.1em;
-  padding: 1.5em 2em 0.5em 2em;
+  gap: 1.3em;
+  padding: 2em 2.5em 0.8em 2.5em;
 }
 
 .logo {
-  font-size: 2.6em;
+  font-size: 2.8em;
   margin-right: .5em;
-  filter: drop-shadow(0 6px 12px #2224);
+  filter: drop-shadow(0 7px 15px #23233944);
 }
 
 h1 {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0;
+  letter-spacing: 0.04em;
+  font-size: 2em;
 }
 
 .slogan {
-  font-size: 1.12em;
-  margin: .2em 0 0 0;
-  opacity: 0.93;
+  font-size: 1.16em;
+  margin: .3em 0 0 0;
+  opacity: 0.97;
+  font-weight: 500;
 }
 
 nav ul {
   display: flex;
-  gap: 1.5em;
+  gap: 2em;
   list-style: none;
   margin: 0;
-  padding: 0 1.7em 0.5em 2.5em;
-  font-size: 1.1em;
-  font-weight: 500;
-}nav a {
+  padding: 0 2em 0.8em 3em;
+  font-size: 1.12em;
+  font-weight: 600;
+}
+nav a {
   color: var(--color-blanco);
   text-decoration: none;
-  transition: color .2s;
-  padding: 0.2em 0.7em;
-  border-radius: 6px;
-}nav a:hover,
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+  padding: 0.32em 1em;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 2px 8px #fff1;
+}
+nav a:hover,
 nav a:focus {
   background: var(--color-secundario);
   color: var(--color-principal);
+  box-shadow: 0 4px 20px #ffb84d33;
 }
 
 main {
-  max-width: 830px;
+  max-width: 900px;
   margin: 2.2em auto;
-  padding: 0 1.2em;
+  padding: 0 2em;
 }
 
 .section {
-  margin-bottom: 3em;
+  margin-bottom: 3.2em;
   background: var(--color-blanco);
   border-radius: var(--border-radius);
-  box-shadow: 0 2px 12px #7b2ff210;
-  padding: 2em 1.7em 1.7em 1.7em;
+  box-shadow: 0 4px 24px #6c47ff16;
+  padding: 2em 2em 1.8em 2em;
+  transition: box-shadow var(--transition);
+}
+.section:hover {
+  box-shadow: 0 8px 32px #6c47ff24;
 }
 
 .section h2 {
   font-family: 'Montserrat', Arial, sans-serif;
   color: var(--color-principal);
   margin-top: 0;
-  font-size: 1.5em;
-  margin-bottom: 1em;
-  letter-spacing: 0.02em;
+  font-size: 1.65em;
+  margin-bottom: 1.1em;
+  letter-spacing: 0.03em;
+  font-weight: 700;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(90deg, #e2d8fc 60%, #fdf6ee 100%);
-  box-shadow: 0 4px 32px #7b2ff210;
-  border: 2px solid #eedffd;
+  background: var(--color-hero);
+  box-shadow: 0 8px 32px #6c47ff24;
+  border: 2px solid #ebdefe;
+  border-radius: var(--border-radius);
+  padding: 2em 1.4em;
 }
 
 .hero-content {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 1.1em;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2em;
+  gap: 1.5em;
   justify-content: center;
 }
 
@@ -120,191 +142,213 @@ main {
   background: #fff;
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
-  padding: 1.2em 1em 1em 1em;
-  min-width: 160px;
-  flex: 1 1 170px;
-  max-width: 220px;
+  padding: 1.5em 1.2em 1.2em 1.2em;
+  min-width: 170px;
+  flex: 1 1 200px;
+  max-width: 260px;
   text-align: center;
-  border: 1px solid #f3ecff;
-  margin-bottom: 0.6em;
+  border: 1.5px solid #ece7ff;
+  margin-bottom: 0.8em;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: scale(1.035);
+  box-shadow: 0 10px 40px #6c47ff2a;
 }
 
 .servicio-card .icono-servicio {
-  font-size: 2.5em;
+  font-size: 2.8em;
   display: block;
   margin-bottom: 0.5em;
+  color: var(--color-principal);
 }
 .servicio-card h3 {
   font-family: 'Montserrat', Arial, sans-serif;
   color: var(--color-principal);
-  font-size: 1.13em;
-  margin-bottom: 0.2em;
+  font-size: 1.16em;
+  margin-bottom: 0.25em;
+  font-weight: 600;
 }
 
 .btn-cotiza {
-  background: linear-gradient(90deg, var(--color-principal), #8961e6 80%);
+  background: linear-gradient(90deg, var(--color-principal), #7a65e6 80%);
   color: #fff;
-  padding: 0.7em 1.3em;
+  padding: 0.75em 1.5em;
   border: none;
-  border-radius: 8px;
-  font-size: 1.08em;
+  border-radius: 10px;
+  font-size: 1.13em;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 12px #7b2ff219;
-  margin-top: 1em;
-  transition: transform .20s, box-shadow .20s;
+  box-shadow: 0 3px 16px #6c47ff22;
+  margin-top: 1.2em;
+  transition: transform .18s, box-shadow .18s, background .18s;
   outline: none;
 }
 .btn-cotiza:hover,
 .btn-cotiza:focus {
   background: var(--color-secundario);
   color: var(--color-principal);
-  transform: scale(1.06);
-  box-shadow: 0 6px 18px #7b2ff230;
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px #ffb84d44;
 }
 .pulse {
   animation: pulse 2s infinite cubic-bezier(.4,2,.3,1);
 }
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 var(--color-shadow);}
-  70% { box-shadow: 0 0 0 14px #7b2ff200;}
+  70% { box-shadow: 0 0 0 18px #6c47ff00;}
   100% { box-shadow: 0 0 0 0 var(--color-shadow);}
 }
 
 .tarifa-box {
-  background: #f6f4ff;
-  border-radius: 8px;
-  padding: 1.2em 1em;
-  margin-bottom: 1em;
+  background: #f7f5ff;
+  border-radius: 10px;
+  padding: 1.4em 1.2em;
+  margin-bottom: 1.2em;
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
-  box-shadow: 0 1px 8px #7b2ff215;
-  border: 1px solid #e4dcff;
-  max-width: 370px;
+  gap: 1em;
+  box-shadow: 0 2px 12px #6c47ff17;
+  border: 1.5px solid #e4dcff;
+  max-width: 390px;
 }
 
 .tarifa-box input,
 .tarifa-box select {
-  padding: 0.5em;
-  border-radius: 6px;
-  border: 1px solid #c8b6fa;
-  font-size: 1em;
+  padding: 0.6em;
+  border-radius: 8px;
+  border: var(--border-input);
+  font-size: 1.05em;
   background: #fff;
+  transition: border-color var(--transition);
+}
+.tarifa-box input:focus,
+.tarifa-box select:focus {
+  border-color: var(--color-principal);
+  outline: none;
 }
 
 .precio {
   background: var(--color-principal);
   color: #fff;
-  padding: 0.15em 0.7em;
-  border-radius: 7px;
+  padding: 0.18em 0.8em;
+  border-radius: 8px;
   font-weight: 700;
   margin-left: 0.3em;
+  box-shadow: 0 2px 8px #6c47ff22;
 }
 
 .ejemplo-tarifas {
   text-align: left;
-  background: #f2edfc;
-  border: 1px solid #e4dcff;
-  max-width: 300px;
-  margin: 0.6em auto 0 auto;
+  background: #f5f1fd;
+  border: 1.3px solid #e4dcff;
+  max-width: 320px;
+  margin: 0.7em auto 0 auto;
   font-size: 1em;
+  border-radius: 8px;
+  padding: 0.7em 1em;
 }
 
 .resultado {
-  margin: 1em 0 0.1em 0;
-  font-weight: 500;
+  margin: 1.1em 0 0.2em 0;
+  font-weight: 600;
   color: var(--color-principal);
-  font-size: 1.13em;
-  min-height: 1.2em;
+  font-size: 1.16em;
+  min-height: 1.3em;
 }
 
 .pago-card, .contacto-card {
-  background: #f7f2ff;
-  border: 1px solid #e4dcff;
-  max-width: 360px;
+  background: #f7f3ff;
+  border: 1.5px solid #e4dcff;
+  max-width: 370px;
   margin: 0 auto;
-  font-size: 1.07em;
+  font-size: 1.09em;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px #6c47ff12;
 }
 
 .pagos-lista, .contacto-lista {
   list-style: none;
-  padding: 0.7em 0.6em 0.2em 0.6em;
+  padding: 0.8em 0.7em 0.3em 0.7em;
   margin: 0;
 }
 
 .nota-pago {
-  font-size: 0.98em;
-  color: #555;
-  margin-top: 0.7em;
+  font-size: 1em;
+  color: #666;
+  margin-top: 0.8em;
 }
 
 .ayuda-rastreo {
-  font-size: 0.93em;
+  font-size: 0.97em;
   color: #888;
-  margin-top: .7em;
+  margin-top: .8em;
 }
 
 footer {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.05em;
   color: #555;
-  background: #f3ecff;
-  padding: 1.2em 0 0.7em 0;
-  margin-top: 2em;
-  border-radius: 18px 18px 0 0;
-  box-shadow: 0 -8px 40px #7b2ff212;
+  background: #ece6ff;
+  padding: 1.5em 0 1em 0;
+  margin-top: 2.2em;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -10px 44px #6c47ff10;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 #cursor-glow {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #7b2ff2cc 0%, #fff0 90%);
-  box-shadow: 0 0 18px 9px #7b2ff249;
-  opacity: 0.32;
+  background: radial-gradient(circle at 40% 40%, #6c47ffcc 0%, #fff0 90%);
+  box-shadow: 0 0 20px 11px #6c47ff49;
+  opacity: 0.36;
   transform: translate(-100px,-100px);
-  transition: opacity .25s cubic-bezier(.4,2,.3,1);
+  transition: opacity .28s cubic-bezier(.4,2,.3,1);
   mix-blend-mode: lighten;
   will-change: transform;
   user-select: none;
-  pointer-events: none;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   main {
-    padding: 0 0.1em;
+    padding: 0 0.3em;
     max-width: 99vw;
   }
   .cards {
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.7em;
     align-items: stretch;
+  }
+  .section {
+    padding: 1.2em 0.7em 1em 0.7em;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .header-bg {
     flex-direction: column;
-    gap: 0.3em;
-    padding: 0.9em 0.3em 0.3em 0.3em;
+    gap: 0.4em;
+    padding: 1em 0.3em 0.4em 0.3em;
   }
   nav ul {
-    gap: 0.7em;
-    font-size: 1em;
-    padding: 0 0.5em 0.4em 0.6em;
+    gap: 0.8em;
+    font-size: 0.98em;
+    padding: 0 0.4em 0.3em 0.6em;
   }
   .section {
-    padding: 1.1em 0.5em 1em 0.5em;
+    padding: 0.8em 0.3em 0.7em 0.3em;
   }
   .card {
     min-width: unset;
     max-width: 100%;
-    padding: 1.1em 0.5em 1em 0.5em;
+    padding: 1em 0.4em 0.8em 0.4em;
   }
   .tarifa-box,
   .pago-card,
@@ -314,10 +358,10 @@ footer {
 }
 
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 10px;
   background: #f6f0ff;
 }
 ::-webkit-scrollbar-thumb {
   background: #d3c5f7;
-  border-radius: 7px;
+  border-radius: 8px;
 }

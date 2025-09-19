@@ -32,6 +32,8 @@ header {
   box-shadow: var(--shadow);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  position: relative;
+  z-index: 10;
 }
 
 .header-bg {
@@ -70,6 +72,7 @@ nav ul {
   padding: 0 2em 0.8em 3em;
   font-size: 1.12em;
   font-weight: 600;
+  transition: all .25s;
 }
 nav a {
   color: var(--color-blanco);
@@ -86,6 +89,37 @@ nav a:focus {
   color: var(--color-principal);
   box-shadow: 0 4px 20px #ffb84d33;
 }
+
+/* Menú hamburguesa para móvil */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  position: absolute;
+  top: 1.2em;
+  right: 1.2em;
+  z-index: 20;
+  cursor: pointer;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: var(--color-blanco);
+  height: 4px;
+  width: 28px;
+  border-radius: 2px;
+  position: relative;
+  transition: .24s;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+.nav-toggle-label span::before { top: -9px; }
+.nav-toggle-label span::after { top: 9px; }
 
 main {
   max-width: 900px;
@@ -316,6 +350,7 @@ footer {
   user-select: none;
 }
 
+/* Adaptador responsivo: tablet y celular */
 @media (max-width: 850px) {
   main {
     padding: 0 0.3em;
@@ -331,17 +366,39 @@ footer {
   }
 }
 
-@media (max-width: 520px) {
+/* Menú y layout móvil mejorado */
+@media (max-width: 700px) {
   .header-bg {
     flex-direction: column;
     gap: 0.4em;
     padding: 1em 0.3em 0.4em 0.3em;
+    text-align: center;
   }
   nav ul {
+    flex-direction: column;
     gap: 0.8em;
-    font-size: 0.98em;
+    font-size: 1em;
     padding: 0 0.4em 0.3em 0.6em;
+    background: linear-gradient(90deg, var(--color-principal) 80%, var(--color-secundario) 100%);
+    border-radius: 0 0 18px 18px;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 8px 32px #6c47ff24;
+    z-index: 19;
+    display: none;
   }
+  .nav-toggle:checked ~ nav ul {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: block;
+  }
+}
+
+/* Cards y formularios en móvil */
+@media (max-width: 520px) {
   .section {
     padding: 0.8em 0.3em 0.7em 0.3em;
   }
@@ -355,8 +412,13 @@ footer {
   .contacto-card {
     max-width: 100%;
   }
+  .ejemplo-tarifas {
+    max-width: 100%;
+    padding: 0.6em 0.4em;
+  }
 }
 
+/* Scrollbar personalizado */
 ::-webkit-scrollbar {
   width: 10px;
   background: #f6f0ff;

@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // --- Rastreo de paquetes (simulado) ---
-  // Cada código tiene su propio estado definido
+  // --- Rastreo de paquetes (simulado: cada código tiene su propia respuesta) ---
   const rastreoEstados = {
     "MACU1234": "✅ Tu paquete está EN CAMINO.",
     "MACU0001": "📦 Tu paquete fue ENTREGADO.",
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   function fechaSimulada() {
-    // Fecha y hora simulada (actual menos hasta 72h aleatorias)
     const ahora = new Date();
     const horasRestar = Math.floor(Math.random() * 72); // hasta 3 días atrás
     ahora.setHours(ahora.getHours() - horasRestar);
@@ -73,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
         resultadoRastreo.textContent = "Por favor ingresa tu código de rastreo.";
         return;
       }
-      // Simulación de respuesta:
       resultadoRastreo.textContent = "⏳ Buscando...";
       setTimeout(() => {
         if (rastreoEstados[codigo]) {

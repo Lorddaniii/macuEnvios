@@ -38,22 +38,61 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // --- Rastreo de paquetes (simulado) ---
+  const codigosPrueba = [
+    "MACU1234",
+    "MACU0001",
+    "MACU5678",
+    "MACU9999",
+    "MACU2023",
+    "MACU8765",
+    "MACU4321",
+    "MACU1111",
+    "MACU5555",
+    "MACU8888"
+  ];
+
+  const respuestasRastreo = [
+    "✅ Tu paquete está EN CAMINO.",
+    "📦 Tu paquete fue ENTREGADO.",
+    "🏬 Tu paquete está en el ALMACÉN.",
+    "🚧 Tu paquete está RETRASADO.",
+    "🕑 Tu paquete está en PROCESO DE CLASIFICACIÓN.",
+    "✈️ Tu paquete está en TRÁNSITO.",
+    "🔍 Tu paquete está siendo INSPECCIONADO.",
+    "⏳ Tu paquete está por SALIR de origen.",
+    "🚚 Tu paquete está en REPARTO.",
+    "📦 Tu paquete está LISTO PARA RETIRO."
+  ];
+
+  function fechaSimulada() {
+    // Fecha y hora simulada (actual menos hasta 72h aleatorias)
+    const ahora = new Date();
+    const horasRestar = Math.floor(Math.random() * 72); // hasta 3 días atrás
+    ahora.setHours(ahora.getHours() - horasRestar);
+    return ahora.toLocaleString('es-PE', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
   const rastreoForm = document.getElementById("rastreo-form");
   const resultadoRastreo = document.getElementById("resultado-rastreo");
   if (rastreoForm) {
     rastreoForm.addEventListener("submit", function(e) {
       e.preventDefault();
-      const codigo = document.getElementById("codigo-rastreo").value.trim();
+      const codigo = document.getElementById("codigo-rastreo").value.trim().toUpperCase();
       if (!codigo) {
         resultadoRastreo.textContent = "Por favor ingresa tu código de rastreo.";
         return;
       }
       // Simulación de respuesta:
       resultadoRastreo.textContent = "⏳ Buscando...";
-
       setTimeout(() => {
-        if (codigo.match(/^MACU[0-9]{4,}$/i)) {
-          resultadoRastreo.textContent = `✅ Tu paquete con código ${codigo} está EN CAMINO.`;
+        if (codigosPrueba.includes(codigo)) {
+          // Selecciona una respuesta aleatoria y fecha simulada
+          const respuesta = respuestasRastreo[Math.floor(Math.random() * respuestasRastreo.length)];
+          const fecha = fechaSimulada();
+          resultadoRastreo.textContent = `${respuesta} (Código: ${codigo})\n🗓 Última actualización: ${fecha}`;
         } else {
           resultadoRastreo.textContent = "❌ Código no encontrado. Verifica e inténtalo de nuevo.";
         }

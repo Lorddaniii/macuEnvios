@@ -38,31 +38,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // --- Rastreo de paquetes (simulado) ---
-  const codigosPrueba = [
-    "MACU1234",
-    "MACU0001",
-    "MACU5678",
-    "MACU9999",
-    "MACU2023",
-    "MACU8765",
-    "MACU4321",
-    "MACU1111",
-    "MACU5555",
-    "MACU8888"
-  ];
-
-  const respuestasRastreo = [
-    "✅ Tu paquete está EN CAMINO.",
-    "📦 Tu paquete fue ENTREGADO.",
-    "🏬 Tu paquete está en el ALMACÉN.",
-    "🚧 Tu paquete está RETRASADO.",
-    "🕑 Tu paquete está en PROCESO DE CLASIFICACIÓN.",
-    "✈️ Tu paquete está en TRÁNSITO.",
-    "🔍 Tu paquete está siendo INSPECCIONADO.",
-    "⏳ Tu paquete está por SALIR de origen.",
-    "🚚 Tu paquete está en REPARTO.",
-    "📦 Tu paquete está LISTO PARA RETIRO."
-  ];
+  // Cada código tiene su propio estado definido
+  const rastreoEstados = {
+    "MACU1234": "✅ Tu paquete está EN CAMINO.",
+    "MACU0001": "📦 Tu paquete fue ENTREGADO.",
+    "MACU5678": "🚧 Tu paquete está RETRASADO.",
+    "MACU9999": "📦 Tu paquete está LISTO PARA RETIRO.",
+    "MACU2023": "✈️ Tu paquete está en TRÁNSITO.",
+    "MACU8765": "🔍 Tu paquete está siendo INSPECCIONADO.",
+    "MACU4321": "🏬 Tu paquete está en el ALMACÉN.",
+    "MACU1111": "🕑 Tu paquete está en PROCESO DE CLASIFICACIÓN.",
+    "MACU5555": "⏳ Tu paquete está por SALIR de origen.",
+    "MACU8888": "🚚 Tu paquete está en REPARTO."
+  };
 
   function fechaSimulada() {
     // Fecha y hora simulada (actual menos hasta 72h aleatorias)
@@ -88,9 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // Simulación de respuesta:
       resultadoRastreo.textContent = "⏳ Buscando...";
       setTimeout(() => {
-        if (codigosPrueba.includes(codigo)) {
-          // Selecciona una respuesta aleatoria y fecha simulada
-          const respuesta = respuestasRastreo[Math.floor(Math.random() * respuestasRastreo.length)];
+        if (rastreoEstados[codigo]) {
+          const respuesta = rastreoEstados[codigo];
           const fecha = fechaSimulada();
           resultadoRastreo.textContent = `${respuesta} (Código: ${codigo})\n🗓 Última actualización: ${fecha}`;
         } else {

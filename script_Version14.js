@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
       else tarifa = 12 + Math.ceil(peso - 5) * 3;
 
       if (delicadeza === "fragil") tarifa += 3;
-      if (delicadeza === "muyfragil") tarifa += 5;
+      if (delicadeza === "muyfragil") tarifa += 4;
 
       resultadoCotizador.textContent = `Tarifa estimada: S/${tarifa}`;
     });
